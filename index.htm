@@ -21,7 +21,11 @@
 </script>
 </head>
 <body>
-
+<script>
+document.body.addEventListener('touchmove', function(event) {
+  event.preventDefault();
+}, false); 
+</script>
 <p>Drag the W3Schools image into the rectangle:</p>
 
 <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
