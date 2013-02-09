@@ -1,36 +1,39 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-<style type="text/css">
-#div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
-</style>
-<script>
-    function allowDrop(ev) {
-        ev.preventDefault();
-    }
+    <title>html5 test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <style type="text/css">
+        #div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+    </style>
+    <script type="text/javascript">
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
 
-    function drag(ev) {
-        ev.dataTransfer.setData("Text", ev.target.id);
-    }
+        function drag(ev) {
+            ev.dataTransfer.setData("Text", ev.target.id);
+        }
 
-    function drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("Text");
-        ev.target.appendChild(document.getElementById(data));
-    }
-</script>
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("Text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            document.body.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+            }, false);
+        }, false);
+    </script>
 </head>
 <body>
-<script>
-document.body.addEventListener('touchmove', function(event) {
-  event.preventDefault();}, false);
-</script>
-<p>Drag the W3Schools image into the rectangle:</p>
-
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-<br>
-<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
-
+    <p>Drag the W3Schools image into the rectangle:</p>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <br>
+    <img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69" alt="draggable image"/>
 </body>
 </html>
 
